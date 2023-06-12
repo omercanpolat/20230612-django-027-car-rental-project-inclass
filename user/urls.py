@@ -9,7 +9,8 @@ urlpatterns = [
 # Routers
 # -------------------------------
 from rest_framework.routers import DefaultRouter
-from .views import UserView
+from .views import UserView, UserCreateView
 router = DefaultRouter()
-router.register('', UserView)
+router.register('create', UserCreateView) # AllowAny
+router.register('', UserView) # OnlyStaff
 urlpatterns += router.urls
